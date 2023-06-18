@@ -1,7 +1,0 @@
-pip==23.1.2
-backports.cached_property
-furo
-myst-parser
-sphinx-markdown-tables
-torch
-docutils==0.20.1

@@ -1,0 +1,977 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><link rel="index" title="Index" href="#" /><link rel="search" title="Search" href="search.html" />
+
+    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 --><title>Index - TorchSparse documentation</title>
+<link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="index.html"><div class="brand">TorchSparse  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-scroll"><a class="sidebar-brand" href="index.html">
+  
+  
+  <span class="sidebar-brand-text">TorchSparse  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/basics.html">Basic Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/changes.html">Changes in TorchSparse v2.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started/examples.html">Examples for TorchSparse v2.1</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="guides/optimization.html">Enabling Inference Optimizations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="reference/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/torchsparse.html">torchsparse</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="reference/torchsparse.backbones.html">torchsparse.backbones</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of torchsparse.backbones</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/torchsparse.backbones.modules.html">torchsparse.backbones.modules</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="reference/torchsparse.nn.html">torchsparse.nn</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of torchsparse.nn</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="reference/torchsparse.nn.functional.html">torchsparse.nn.functional</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/torchsparse.nn.modules.html">torchsparse.nn.modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reference/torchsparse.nn.utils.html">torchsparse.nn.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="reference/torchsparse.utils.html">torchsparse.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/citation.html">Citation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="support/faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          
+<section class="genindex-section">
+  <h1 id="index">Index</h1>
+  <div class="genindex-jumpbox"><a href="#A"><strong>A</strong></a> | <a href="#B"><strong>B</strong></a> | <a href="#C"><strong>C</strong></a> | <a href="#D"><strong>D</strong></a> | <a href="#E"><strong>E</strong></a> | <a href="#F"><strong>F</strong></a> | <a href="#G"><strong>G</strong></a> | <a href="#H"><strong>H</strong></a> | <a href="#I"><strong>I</strong></a> | <a href="#L"><strong>L</strong></a> | <a href="#M"><strong>M</strong></a> | <a href="#N"><strong>N</strong></a> | <a href="#P"><strong>P</strong></a> | <a href="#R"><strong>R</strong></a> | <a href="#S"><strong>S</strong></a> | <a href="#T"><strong>T</strong></a></div>
+</section>
+<section id="A" class="genindex-section">
+  <h2>A</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.BatchNorm.affine">affine (BatchNorm attribute)</a>
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.GroupNorm.affine">(GroupNorm attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="B" class="genindex-section">
+  <h2>B</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.BatchNorm">BatchNorm (class in torchsparse.nn.modules.norm)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.build_kmap.build_kernel_map">build_kernel_map() (in module torchsparse.nn.functional.build_kmap)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="C" class="genindex-section">
+  <h2>C</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.html#torchsparse.tensor.SparseTensor.C">C (SparseTensor property)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.devoxelize.calc_ti_weights">calc_ti_weights() (in module torchsparse.nn.functional.devoxelize)</a>
+</li>
+        <li><a href="reference/torchsparse.html#torchsparse.operators.cat">cat() (in module torchsparse.operators)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.conv.Conv3d">Conv3d (class in torchsparse.nn.modules.conv)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.conv.conv3d">conv3d() (in module torchsparse.nn.functional.conv)</a>
+</li>
+        <li><a href="reference/torchsparse.html#torchsparse.tensor.SparseTensor.cpu">cpu() (SparseTensor method)</a>
+</li>
+        <li><a href="reference/torchsparse.html#torchsparse.tensor.PointTensor.cuda">cuda() (PointTensor method)</a>
+
+        <ul>
+          <li><a href="reference/torchsparse.html#torchsparse.tensor.SparseTensor.cuda">(SparseTensor method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="D" class="genindex-section">
+  <h2>D</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.html#torchsparse.tensor.PointTensor.detach">detach() (PointTensor method)</a>
+
+        <ul>
+          <li><a href="reference/torchsparse.html#torchsparse.tensor.SparseTensor.detach">(SparseTensor method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="E" class="genindex-section">
+  <h2>E</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.BatchNorm.eps">eps (BatchNorm attribute)</a>
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.GroupNorm.eps">(GroupNorm attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.conv.Conv3d.extra_repr">extra_repr() (Conv3d method)</a>
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVConvolution.extra_repr">(ToBEVConvolution method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVHeightCompression.extra_repr">(ToBEVHeightCompression method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVReduction.extra_repr">(ToBEVReduction method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToDenseBEVConvolution.extra_repr">(ToDenseBEVConvolution method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="F" class="genindex-section">
+  <h2>F</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.html#torchsparse.tensor.SparseTensor.F">F (SparseTensor property)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.utils.html#torchsparse.nn.utils.apply.fapply">fapply() (in module torchsparse.nn.utils.apply)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.BatchNorm.forward">forward() (BatchNorm method)</a>
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.conv.Conv3d.forward">(Conv3d method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.pooling.GlobalAvgPool.forward">(GlobalAvgPool method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.pooling.GlobalMaxPool.forward">(GlobalMaxPool method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.GroupNorm.forward">(GroupNorm method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.activation.LeakyReLU.forward">(LeakyReLU method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.activation.ReLU.forward">(ReLU method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.crop.SparseCrop.forward">(SparseCrop method)</a>
+</li>
+          <li><a href="reference/torchsparse.backbones.modules.html#torchsparse.backbones.modules.blocks.SparseResBlock.forward">(SparseResBlock method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVConvolution.forward">(ToBEVConvolution method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVHeightCompression.forward">(ToBEVHeightCompression method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVReduction.forward">(ToBEVReduction method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToDenseBEVConvolution.forward">(ToDenseBEVConvolution method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="G" class="genindex-section">
+  <h2>G</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.utils.html#torchsparse.nn.utils.kernel.get_kernel_offsets">get_kernel_offsets() (in module torchsparse.nn.utils.kernel)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.pooling.global_avg_pool">global_avg_pool() (in module torchsparse.nn.functional.pooling)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.pooling.global_max_pool">global_max_pool() (in module torchsparse.nn.functional.pooling)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.pooling.GlobalAvgPool">GlobalAvgPool (class in torchsparse.nn.modules.pooling)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.pooling.GlobalMaxPool">GlobalMaxPool (class in torchsparse.nn.modules.pooling)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.GroupNorm">GroupNorm (class in torchsparse.nn.modules.norm)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="H" class="genindex-section">
+  <h2>H</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.html#torchsparse.tensor.SparseTensor.half">half() (SparseTensor method)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="I" class="genindex-section">
+  <h2>I</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.html#torchsparse.backends.init">init() (in module torchsparse.backends)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.activation.LeakyReLU.inplace">inplace (LeakyReLU attribute)</a>
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.activation.ReLU.inplace">(ReLU attribute)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="L" class="genindex-section">
+  <h2>L</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.activation.leaky_relu">leaky_relu() (in module torchsparse.nn.functional.activation)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.activation.LeakyReLU">LeakyReLU (class in torchsparse.nn.modules.activation)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="M" class="genindex-section">
+  <h2>M</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.utils.html#torchsparse.utils.utils.make_ntuple">make_ntuple() (in module torchsparse.utils.utils)</a>
+</li>
+        <li>
+    module
+
+        <ul>
+          <li><a href="reference/torchsparse.html#module-torchsparse">torchsparse</a>
+</li>
+          <li><a href="reference/torchsparse.backbones.html#module-torchsparse.backbones">torchsparse.backbones</a>
+</li>
+          <li><a href="reference/torchsparse.backbones.modules.html#module-torchsparse.backbones.modules">torchsparse.backbones.modules</a>
+</li>
+          <li><a href="reference/torchsparse.backbones.modules.html#module-torchsparse.backbones.modules.blocks">torchsparse.backbones.modules.blocks</a>
+</li>
+          <li><a href="reference/torchsparse.backbones.html#module-torchsparse.backbones.resnet">torchsparse.backbones.resnet</a>
+</li>
+          <li><a href="reference/torchsparse.backbones.html#module-torchsparse.backbones.unet">torchsparse.backbones.unet</a>
+</li>
+          <li><a href="reference/torchsparse.html#module-torchsparse.backends">torchsparse.backends</a>
+</li>
+          <li><a href="reference/torchsparse.nn.html#module-torchsparse.nn">torchsparse.nn</a>
+</li>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional">torchsparse.nn.functional</a>
+</li>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.activation">torchsparse.nn.functional.activation</a>
+</li>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.build_kmap">torchsparse.nn.functional.build_kmap</a>
+</li>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.conv">torchsparse.nn.functional.conv</a>
+</li>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.count">torchsparse.nn.functional.count</a>
+</li>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.crop">torchsparse.nn.functional.crop</a>
+</li>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.devoxelize">torchsparse.nn.functional.devoxelize</a>
+</li>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.downsample">torchsparse.nn.functional.downsample</a>
+</li>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.hash">torchsparse.nn.functional.hash</a>
+</li>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.pooling">torchsparse.nn.functional.pooling</a>
+</li>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.query">torchsparse.nn.functional.query</a>
+</li>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.voxelize">torchsparse.nn.functional.voxelize</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules">torchsparse.nn.modules</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules.activation">torchsparse.nn.modules.activation</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules.bev">torchsparse.nn.modules.bev</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules.conv">torchsparse.nn.modules.conv</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules.crop">torchsparse.nn.modules.crop</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules.norm">torchsparse.nn.modules.norm</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules.pooling">torchsparse.nn.modules.pooling</a>
+</li>
+          <li><a href="reference/torchsparse.nn.utils.html#module-torchsparse.nn.utils">torchsparse.nn.utils</a>
+</li>
+          <li><a href="reference/torchsparse.nn.utils.html#module-torchsparse.nn.utils.apply">torchsparse.nn.utils.apply</a>
+</li>
+          <li><a href="reference/torchsparse.nn.utils.html#module-torchsparse.nn.utils.kernel">torchsparse.nn.utils.kernel</a>
+</li>
+          <li><a href="reference/torchsparse.html#module-torchsparse.operators">torchsparse.operators</a>
+</li>
+          <li><a href="reference/torchsparse.html#module-torchsparse.tensor">torchsparse.tensor</a>
+</li>
+          <li><a href="reference/torchsparse.utils.html#module-torchsparse.utils">torchsparse.utils</a>
+</li>
+          <li><a href="reference/torchsparse.utils.html#module-torchsparse.utils.collate">torchsparse.utils.collate</a>
+</li>
+          <li><a href="reference/torchsparse.utils.html#module-torchsparse.utils.quantize">torchsparse.utils.quantize</a>
+</li>
+          <li><a href="reference/torchsparse.utils.html#module-torchsparse.utils.tune">torchsparse.utils.tune</a>
+</li>
+          <li><a href="reference/torchsparse.utils.html#module-torchsparse.utils.utils">torchsparse.utils.utils</a>
+</li>
+          <li><a href="reference/torchsparse.html#module-torchsparse.version">torchsparse.version</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.BatchNorm.momentum">momentum (BatchNorm attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="N" class="genindex-section">
+  <h2>N</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.activation.LeakyReLU.negative_slope">negative_slope (LeakyReLU attribute)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.GroupNorm.num_channels">num_channels (GroupNorm attribute)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.BatchNorm.num_features">num_features (BatchNorm attribute)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.GroupNorm.num_groups">num_groups (GroupNorm attribute)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="P" class="genindex-section">
+  <h2>P</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.html#torchsparse.tensor.PointTensor">PointTensor (class in torchsparse.tensor)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="R" class="genindex-section">
+  <h2>R</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.activation.ReLU">ReLU (class in torchsparse.nn.modules.activation)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.activation.relu">relu() (in module torchsparse.nn.functional.activation)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.conv.Conv3d.reset_parameters">reset_parameters() (Conv3d method)</a>
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVConvolution.reset_parameters">(ToBEVConvolution method)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToDenseBEVConvolution.reset_parameters">(ToDenseBEVConvolution method)</a>
+</li>
+        </ul></li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="S" class="genindex-section">
+  <h2>S</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.html#torchsparse.tensor.SparseTensor.s">s (SparseTensor property)</a>
+</li>
+        <li><a href="reference/torchsparse.utils.html#torchsparse.utils.collate.sparse_collate">sparse_collate() (in module torchsparse.utils.collate)</a>
+</li>
+        <li><a href="reference/torchsparse.utils.html#torchsparse.utils.collate.sparse_collate_fn">sparse_collate_fn() (in module torchsparse.utils.collate)</a>
+</li>
+        <li><a href="reference/torchsparse.utils.html#torchsparse.utils.quantize.sparse_quantize">sparse_quantize() (in module torchsparse.utils.quantize)</a>
+</li>
+        <li><a href="reference/torchsparse.backbones.modules.html#torchsparse.backbones.modules.blocks.SparseConvBlock">SparseConvBlock (class in torchsparse.backbones.modules.blocks)</a>
+</li>
+        <li><a href="reference/torchsparse.backbones.modules.html#torchsparse.backbones.modules.blocks.SparseConvTransposeBlock">SparseConvTransposeBlock (class in torchsparse.backbones.modules.blocks)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.crop.SparseCrop">SparseCrop (class in torchsparse.nn.modules.crop)</a>
+</li>
+        <li><a href="reference/torchsparse.backbones.modules.html#torchsparse.backbones.modules.blocks.SparseResBlock">SparseResBlock (class in torchsparse.backbones.modules.blocks)</a>
+</li>
+        <li><a href="reference/torchsparse.backbones.html#torchsparse.backbones.resnet.SparseResNet21D">SparseResNet21D (class in torchsparse.backbones.resnet)</a>
+</li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.backbones.html#torchsparse.backbones.unet.SparseResUNet42">SparseResUNet42 (class in torchsparse.backbones.unet)</a>
+</li>
+        <li><a href="reference/torchsparse.html#torchsparse.tensor.SparseTensor">SparseTensor (class in torchsparse.tensor)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.count.spcount">spcount() (in module torchsparse.nn.functional.count)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.crop.spcrop">spcrop() (in module torchsparse.nn.functional.crop)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.devoxelize.spdevoxelize">spdevoxelize() (in module torchsparse.nn.functional.devoxelize)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.downsample.spdownsample">spdownsample() (in module torchsparse.nn.functional.downsample)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.hash.sphash">sphash() (in module torchsparse.nn.functional.hash)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.query.sphashquery">sphashquery() (in module torchsparse.nn.functional.query)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.functional.html#torchsparse.nn.functional.voxelize.spvoxelize">spvoxelize() (in module torchsparse.nn.functional.voxelize)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+<section id="T" class="genindex-section">
+  <h2>T</h2>
+  <table style="width: 100%" class="indextable genindextable"><tr>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li><a href="reference/torchsparse.html#torchsparse.tensor.PointTensor.to">to() (PointTensor method)</a>
+
+        <ul>
+          <li><a href="reference/torchsparse.html#torchsparse.tensor.SparseTensor.to">(SparseTensor method)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVConvolution">ToBEVConvolution (class in torchsparse.nn.modules.bev)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVHeightCompression">ToBEVHeightCompression (class in torchsparse.nn.modules.bev)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVReduction">ToBEVReduction (class in torchsparse.nn.modules.bev)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToDenseBEVConvolution">ToDenseBEVConvolution (class in torchsparse.nn.modules.bev)</a>
+</li>
+        <li>
+    torchsparse
+
+        <ul>
+          <li><a href="reference/torchsparse.html#module-torchsparse">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.backbones
+
+        <ul>
+          <li><a href="reference/torchsparse.backbones.html#module-torchsparse.backbones">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.backbones.modules
+
+        <ul>
+          <li><a href="reference/torchsparse.backbones.modules.html#module-torchsparse.backbones.modules">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.backbones.modules.blocks
+
+        <ul>
+          <li><a href="reference/torchsparse.backbones.modules.html#module-torchsparse.backbones.modules.blocks">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.backbones.resnet
+
+        <ul>
+          <li><a href="reference/torchsparse.backbones.html#module-torchsparse.backbones.resnet">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.backbones.unet
+
+        <ul>
+          <li><a href="reference/torchsparse.backbones.html#module-torchsparse.backbones.unet">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.backends
+
+        <ul>
+          <li><a href="reference/torchsparse.html#module-torchsparse.backends">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.html#module-torchsparse.nn">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.functional
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.functional.activation
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.activation">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.functional.build_kmap
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.build_kmap">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.functional.conv
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.conv">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.functional.count
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.count">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.functional.crop
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.crop">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.functional.devoxelize
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.devoxelize">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.functional.downsample
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.downsample">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.functional.hash
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.hash">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.functional.pooling
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.pooling">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.functional.query
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.query">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.functional.voxelize
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.functional.html#module-torchsparse.nn.functional.voxelize">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.modules
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules">module</a>
+</li>
+        </ul></li>
+    </ul></td>
+    <td style="width: 33%; vertical-align: top;"><ul>
+        <li>
+    torchsparse.nn.modules.activation
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules.activation">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.modules.bev
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules.bev">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.modules.conv
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules.conv">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.modules.crop
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules.crop">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.modules.norm
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules.norm">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.modules.pooling
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#module-torchsparse.nn.modules.pooling">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.utils
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.utils.html#module-torchsparse.nn.utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.utils.apply
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.utils.html#module-torchsparse.nn.utils.apply">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.nn.utils.kernel
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.utils.html#module-torchsparse.nn.utils.kernel">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.operators
+
+        <ul>
+          <li><a href="reference/torchsparse.html#module-torchsparse.operators">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.tensor
+
+        <ul>
+          <li><a href="reference/torchsparse.html#module-torchsparse.tensor">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.utils
+
+        <ul>
+          <li><a href="reference/torchsparse.utils.html#module-torchsparse.utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.utils.collate
+
+        <ul>
+          <li><a href="reference/torchsparse.utils.html#module-torchsparse.utils.collate">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.utils.quantize
+
+        <ul>
+          <li><a href="reference/torchsparse.utils.html#module-torchsparse.utils.quantize">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.utils.tune
+
+        <ul>
+          <li><a href="reference/torchsparse.utils.html#module-torchsparse.utils.tune">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.utils.utils
+
+        <ul>
+          <li><a href="reference/torchsparse.utils.html#module-torchsparse.utils.utils">module</a>
+</li>
+        </ul></li>
+        <li>
+    torchsparse.version
+
+        <ul>
+          <li><a href="reference/torchsparse.html#module-torchsparse.version">module</a>
+</li>
+        </ul></li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.norm.BatchNorm.track_running_stats">track_running_stats (BatchNorm attribute)</a>
+</li>
+        <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.conv.Conv3d.training">training (Conv3d attribute)</a>
+
+        <ul>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.pooling.GlobalAvgPool.training">(GlobalAvgPool attribute)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.pooling.GlobalMaxPool.training">(GlobalMaxPool attribute)</a>
+</li>
+          <li><a href="reference/torchsparse.backbones.modules.html#torchsparse.backbones.modules.blocks.SparseConvBlock.training">(SparseConvBlock attribute)</a>
+</li>
+          <li><a href="reference/torchsparse.backbones.modules.html#torchsparse.backbones.modules.blocks.SparseConvTransposeBlock.training">(SparseConvTransposeBlock attribute)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.crop.SparseCrop.training">(SparseCrop attribute)</a>
+</li>
+          <li><a href="reference/torchsparse.backbones.modules.html#torchsparse.backbones.modules.blocks.SparseResBlock.training">(SparseResBlock attribute)</a>
+</li>
+          <li><a href="reference/torchsparse.backbones.html#torchsparse.backbones.resnet.SparseResNet21D.training">(SparseResNet21D attribute)</a>
+</li>
+          <li><a href="reference/torchsparse.backbones.html#torchsparse.backbones.unet.SparseResUNet42.training">(SparseResUNet42 attribute)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVConvolution.training">(ToBEVConvolution attribute)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVHeightCompression.training">(ToBEVHeightCompression attribute)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToBEVReduction.training">(ToBEVReduction attribute)</a>
+</li>
+          <li><a href="reference/torchsparse.nn.modules.html#torchsparse.nn.modules.bev.ToDenseBEVConvolution.training">(ToDenseBEVConvolution attribute)</a>
+</li>
+        </ul></li>
+        <li><a href="reference/torchsparse.utils.html#torchsparse.utils.tune.tune">tune() (in module torchsparse.utils.tune)</a>
+</li>
+    </ul></td>
+  </tr></table>
+</section>
+
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, MIT HAN Lab.
+Document author: Xiuyu Li. Modified by: Haotian Tang and Shang Yang.
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/scripts/furo.js"></script>
+    </body>
+</html>

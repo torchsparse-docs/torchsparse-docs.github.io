@@ -1,0 +1,542 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Examples for TorchSparse v2.1" href="examples.html" /><link rel="prev" title="Basic Concepts" href="basics.html" />
+
+    <!-- Generated with Sphinx 7.0.1 and Furo 2023.05.20 -->
+        <title>Changes in TorchSparse v2.1 - TorchSparse documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?digest=e6660623a769aa55fea372102b9bf3151b292993" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-half" viewBox="0 0 24 24">
+    <title>Auto light/dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-shadow">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M13 12h5" />
+      <path d="M13 15h4" />
+      <path d="M13 18h1" />
+      <path d="M13 9h4" />
+      <path d="M13 6h1" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../index.html"><div class="brand">TorchSparse  documentation</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><div class="sidebar-scroll"><a class="sidebar-brand" href="../index.html">
+  
+  
+  <span class="sidebar-brand-text">TorchSparse  documentation</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Basic Concepts</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Changes in TorchSparse v2.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">Examples for TorchSparse v2.1</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/optimization.html">Enabling Inference Optimizations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reference/index.html">API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of API Reference</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reference/torchsparse.html">torchsparse</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/torchsparse.backbones.html">torchsparse.backbones</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of torchsparse.backbones</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/torchsparse.backbones.modules.html">torchsparse.backbones.modules</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../reference/torchsparse.nn.html">torchsparse.nn</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of torchsparse.nn</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../reference/torchsparse.nn.functional.html">torchsparse.nn.functional</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/torchsparse.nn.modules.html">torchsparse.nn.modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/torchsparse.nn.utils.html">torchsparse.nn.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../reference/torchsparse.utils.html">torchsparse.utils</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/citation.html">Citation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/faq.html">Frequently Asked Questions</a></li>
+</ul>
+
+</div>
+</div>
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto"><use href="#svg-sun-half"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main">
+          <section id="changes-in-torchsparse-v2-1">
+<h1>Changes in TorchSparse v2.1<a class="headerlink" href="#changes-in-torchsparse-v2-1" title="Permalink to this heading">#</a></h1>
+<p>In TorchSparse v2.1, we introduced and optimized the Implicit-GEMM dataflow to improve the computing efficiency of Sparse Convolution.</p>
+<section id="tf32">
+<h2>TF32<a class="headerlink" href="#tf32" title="Permalink to this heading">#</a></h2>
+<p>We support TF32 precision in TorchSparse v2.1. Use following code to activate TF32 mode:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torchsparse.backends</span>
+<span class="n">torchsparse</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">allow_tf32</span> <span class="o">=</span> <span class="kc">True</span>	<span class="c1"># True by default on NVIDIA GPUs &gt;= SM80</span>
+</pre></div>
+</div>
+</section>
+<section id="user-api">
+<h2>User API<a class="headerlink" href="#user-api" title="Permalink to this heading">#</a></h2>
+<p>The APIs for Sparse Convolution in TorchSparse v2.1 is PyTorch-like and can be easily accessed in <code class="docutils literal notranslate"><span class="pre">torchsparse.nn</span></code> :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torchsparse</span> <span class="kn">import</span> <span class="n">nn</span> <span class="k">as</span> <span class="n">spnn</span>
+<span class="n">SparseConvLayer</span> <span class="o">=</span> <span class="n">spnn</span><span class="o">.</span><span class="n">Conv3d</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The input arguments for <code class="docutils literal notranslate"><span class="pre">spnn.Conv3d</span></code> are as follows:</p>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;">Input Argument</th>
+<th style="text-align: center;">Type</th>
+<th style="text-align: center;">Mandatory</th>
+<th style="text-align: center;">Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">in_channels</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">/</td>
+</tr>
+<tr>
+<td style="text-align: center;">out_channels</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: center;">/</td>
+</tr>
+<tr>
+<td style="text-align: center;">kernel_size</td>
+<td style="text-align: center;">int / List[int] / Tuple[int, ...]</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: center;">stride</td>
+<td style="text-align: center;">int / List[int] / Tuple[int, ...]</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">padding</td>
+<td style="text-align: center;">int / List[int] / Tuple[int, ...]</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td style="text-align: center;">dilation</td>
+<td style="text-align: center;">int</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: center;">bias</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">False</td>
+</tr>
+<tr>
+<td style="text-align: center;">transposed</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">False</td>
+</tr>
+<tr>
+<td style="text-align: center;">generative</td>
+<td style="text-align: center;">bool</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: center;">False</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>The argument <code class="docutils literal notranslate"><span class="pre">generative</span></code> is newly introduced in TorchSparse v2.1. If both <code class="docutils literal notranslate"><span class="pre">generative</span></code>  and <code class="docutils literal notranslate"><span class="pre">transposed</span></code> are <code class="docutils literal notranslate"><span class="pre">True</span></code> , the conv module will execute generative transposed convolution.</p></li>
+</ul>
+</section>
+<section id="conv-mode-auto-tune">
+<h2>Conv_mode &amp; Auto-tune<a class="headerlink" href="#conv-mode-auto-tune" title="Permalink to this heading">#</a></h2>
+<section id="sparse-conv-mode">
+<h3>Sparse Conv Mode<a class="headerlink" href="#sparse-conv-mode" title="Permalink to this heading">#</a></h3>
+<p>We provide 3 different <strong>Sparse Convolution Modes</strong> in TorchSparse v2.1 to accommodate different workloads (get better performance). The conv_mode can be get/set through:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torchsparse.nn</span> <span class="kn">import</span> <span class="n">functional</span> <span class="k">as</span> <span class="n">F</span>
+
+<span class="n">F</span><span class="o">.</span><span class="n">set_conv_mode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>				<span class="c1"># Set conv_mode to 0/1/2</span>
+<span class="n">conv_mode</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">get_conv_mode</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">conv_mode</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>conv_mode can significantly impact the performance of Sparse Convolution</strong>.</p></li>
+<li><p>Generally, <code class="docutils literal notranslate"><span class="pre">conv_mode</span> <span class="pre">=</span> <span class="pre">0</span></code> (default) is more suitable for workloads with lower sparsity (e.g., detection tasks) and lower compute precision (e.g., FP16), while <code class="docutils literal notranslate"><span class="pre">conv_mode</span> <span class="pre">=</span> <span class="pre">1</span> <span class="pre">or</span> <span class="pre">2</span></code> might be a better choice for higher compute precision and sparsity.</p></li>
+<li><p>Please refer to the following table below for recommended <code class="docutils literal notranslate"><span class="pre">conv_mode</span></code> settings. However, you are always encouraged to experiment and evaluate the speed differences to find the optimal setting for your specific use case：</p></li>
+</ul>
+<table border="1" class="docutils">
+<thead>
+<tr>
+<th style="text-align: center;"></th>
+<th style="text-align: center;">FP16</th>
+<th style="text-align: center;">TF32</th>
+<th style="text-align: center;">FP32</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Segmentation</strong></td>
+<td style="text-align: center;"><code>conv_mode 0</code></td>
+<td style="text-align: center;"><code>conv_mode 2</code></td>
+<td style="text-align: center;"><code>conv_mode 2</code></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Detection</strong></td>
+<td style="text-align: center;"><code>conv_mode 0</code></td>
+<td style="text-align: center;"><code>conv_mode 0</code></td>
+<td style="text-align: center;"><code>conv_mode 2</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sparse-auto-tune-experimental-feature">
+<h3>Sparse Auto-tune (Experimental Feature)<a class="headerlink" href="#sparse-auto-tune-experimental-feature" title="Permalink to this heading">#</a></h3>
+<p>We also provide Sparse Auto-tuner in TorchSparse v2.1 to optimize <strong>Sparse Conv Settings</strong> autonomously.  To enable Auto-optimization, you need to first run the model with a few samples to tune conv kernel configurations:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># your model to be used</span>
+<span class="n">dataflow</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># an iterator with your data samples, usually in the form of torch.utils.data.DataLoader</span>
+<span class="n">save_dir</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># path to save tuning results, a str</span>
+<span class="n">tune_tag</span> <span class="o">=</span> <span class="o">...</span> <span class="c1"># tag for tuning, a str</span>
+
+<span class="n">torchsparse</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span>
+    <span class="n">data_loader</span><span class="o">=</span><span class="n">dataflow</span><span class="p">,</span>
+    <span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>				 <span class="c1"># How many data samples to use in auto-tuning</span>
+    <span class="n">collect_fn</span><span class="o">=</span><span class="k">lambda</span> <span class="n">data</span><span class="p">:</span><span class="n">data</span><span class="p">,</span> 
+    <span class="n">enable_fp16</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+    <span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span><span class="p">,</span>
+    <span class="n">tune_tag</span> <span class="o">=</span> <span class="n">tune_tag</span><span class="p">,</span>
+    <span class="n">force_retune</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 		 <span class="c1"># Whether to ignore cached tuning results</span>
+    <span class="n">tune_with_bwd</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>		 <span class="c1"># Whether to tune for backward kernels</span>
+<span class="p">)</span>
+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">collect_fn</span></code>: Process data before calling model.forward(). Or rather, run<code class="docutils literal notranslate"><span class="pre">model(*collect_fn(data))</span></code> where data is yielded by <code class="docutils literal notranslate"><span class="pre">data_loader</span></code>. The default case handles <code class="docutils literal notranslate"><span class="pre">{'input':</span> <span class="pre">SparseTensor,...}</span></code> for data.</p></li>
+</ul>
+</section>
+</section>
+<section id="sparse-mapping-mode">
+<h2>Sparse Mapping Mode<a class="headerlink" href="#sparse-mapping-mode" title="Permalink to this heading">#</a></h2>
+<p>We provided two <strong>sparse mapping modes</strong> in TorchSparse v2.1: <code class="docutils literal notranslate"><span class="pre">hashmap</span></code> and <code class="docutils literal notranslate"><span class="pre">hashmap_on_the_fly</span></code> (default). The <code class="docutils literal notranslate"><span class="pre">grid</span></code> mode in previous TorchSparse has been deprecated.</p>
+<p>TorchSparse v2.1 relies on hash method to map input &amp; output points. The <code class="docutils literal notranslate"><span class="pre">hashmap_on_the_fly</span></code> mode fuses operations (e.g., build hash table, hash query) together, making it slightly faster than <code class="docutils literal notranslate"><span class="pre">hashmap</span></code> mode in most cases.</p>
+<p>The <strong>sparse mapping modes</strong> can be easily set through:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torchsparse.nn</span> <span class="kn">import</span> <span class="n">functional</span> <span class="k">as</span> <span class="n">F</span>
+
+<span class="n">F</span><span class="o">.</span><span class="n">set_kmap_mode</span><span class="p">(</span><span class="s1">&#39;hashmap&#39;</span><span class="p">)</span>		<span class="c1"># Choose &#39;hashmap&#39; or &#39;hashmap_on_the_fly&#39;</span>
+<span class="n">kmap_mode</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">get_kmap_mode</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">kmap_mode</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="downsample-mode">
+<h2>Downsample Mode<a class="headerlink" href="#downsample-mode" title="Permalink to this heading">#</a></h2>
+<p>TorchSparse v2.1 is compatible with the two different downsampling modes in <a class="reference external" href="https://github.com/traveller59/spconv">SpConv</a> and <a class="reference external" href="https://github.com/NVIDIA/MinkowskiEngine">MinkowskiEngine</a>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torchsparse.nn</span> <span class="kn">import</span> <span class="n">functional</span> <span class="k">as</span> <span class="n">F</span>
+
+<span class="n">F</span><span class="o">.</span><span class="n">set_downsample_mode</span><span class="p">(</span><span class="s1">&#39;spconv&#39;</span><span class="p">)</span>		<span class="c1"># Choose &#39;spconv&#39; or &#39;minkowski&#39;</span>
+<span class="n">downsample_mode</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">get_downsample_mode</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">downsample_mode</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="additional-notes">
+<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this heading">#</a></h2>
+<section id="coordinate-order-batch-first">
+<h3>Coordinate Order - Batch First<a class="headerlink" href="#coordinate-order-batch-first" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>We changed the coordinate order from <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">z,</span> <span class="pre">batch]</span></code>  to <code class="docutils literal notranslate"><span class="pre">[batch,</span> <span class="pre">x,</span> <span class="pre">y,</span> <span class="pre">z]</span></code> in TorchSparse v2.1.</p></li>
+</ul>
+</section>
+<section id="negative-coordinates">
+<h3>Negative coordinates<a class="headerlink" href="#negative-coordinates" title="Permalink to this heading">#</a></h3>
+<ul>
+<li><p>TorchSparse v2.1 allows negative coordinates as inputs.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torchsparse.tensor</span> <span class="k">as</span> <span class="nn">ts_ten</span>
+
+<span class="n">ts_ten</span><span class="o">.</span><span class="n">set_allow_negative_coordinates</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>			<span class="c1"># False by default	</span>
+<span class="n">neg_flag</span> <span class="o">=</span> <span class="n">ts_ten</span><span class="o">.</span><span class="n">get_allow_negative_coordinates</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">neg_flag</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Note that allowing negative coordinates can add to the sparse mapping overhead. We recommend to leave this flag as <code class="docutils literal notranslate"><span class="pre">False</span></code> if you can make sure that there will be no negative coordinates in your input tensor.</p></li>
+</ul>
+</section>
+<section id="sparsetensor-to-dense">
+<h3>SparseTensor.to_dense()<a class="headerlink" href="#sparsetensor-to-dense" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>We designed customized CUDA kernels to efficiently convert <code class="docutils literal notranslate"><span class="pre">SparseTensor</span></code> to its dense counterpart. Simply call <code class="docutils literal notranslate"><span class="pre">SparseTensor.dense()</span></code> to do the conversion.</p></li>
+</ul>
+</section>
+<section id="range-of-coordinates">
+<h3>Range of coordinates<a class="headerlink" href="#range-of-coordinates" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>TorchSparse v2.1 changes the behavior of downsampling layers. The range of coordinates will shrink by <code class="docutils literal notranslate"><span class="pre">s</span></code> times if we apply a convolution layer with stride = <code class="docutils literal notranslate"><span class="pre">s</span></code>.</p></li>
+</ul>
+<p>Originally, the coordinate operation can be understood as:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coords_new</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">coords_old</span> <span class="o">/</span> <span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">int</span><span class="p">()</span> <span class="o">*</span> <span class="n">s</span>
+</pre></div>
+</div>
+<p>Now it is similar to</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">coords_new</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">coords_old</span> <span class="o">/</span> <span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">int</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We also support padding to manipulate the range of coordinates during downsampling. The definition of padding is fully compatible with SpConv and will not take effect if <code class="docutils literal notranslate"><span class="pre">downsample_mode</span> <span class="pre">=</span> <span class="pre">&quot;minkowski&quot;</span></code>. Padding determines the lower and upper bound of coordinates.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="examples.html">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">Examples for TorchSparse v2.1</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="basics.html">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Basic Concepts</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2023, MIT HAN Lab.
+Document author: Xiuyu Li. Modified by: Haotian Tang and Shang Yang.
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Changes in TorchSparse v2.1</a><ul>
+<li><a class="reference internal" href="#tf32">TF32</a></li>
+<li><a class="reference internal" href="#user-api">User API</a></li>
+<li><a class="reference internal" href="#conv-mode-auto-tune">Conv_mode &amp; Auto-tune</a><ul>
+<li><a class="reference internal" href="#sparse-conv-mode">Sparse Conv Mode</a></li>
+<li><a class="reference internal" href="#sparse-auto-tune-experimental-feature">Sparse Auto-tune (Experimental Feature)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#sparse-mapping-mode">Sparse Mapping Mode</a></li>
+<li><a class="reference internal" href="#downsample-mode">Downsample Mode</a></li>
+<li><a class="reference internal" href="#additional-notes">Additional Notes</a><ul>
+<li><a class="reference internal" href="#coordinate-order-batch-first">Coordinate Order - Batch First</a></li>
+<li><a class="reference internal" href="#negative-coordinates">Negative coordinates</a></li>
+<li><a class="reference internal" href="#sparsetensor-to-dense">SparseTensor.to_dense()</a></li>
+<li><a class="reference internal" href="#range-of-coordinates">Range of coordinates</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/scripts/furo.js"></script>
+    </body>
+</html>
