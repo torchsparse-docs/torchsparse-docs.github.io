@@ -228,13 +228,13 @@
 <h2>Benchmarks<a class="headerlink" href="#benchmarks" title="Permalink to this heading">#</a></h2>
 <section id="inference-benchmarks">
 <h3>Inference benchmarks<a class="headerlink" href="#inference-benchmarks" title="Permalink to this heading">#</a></h3>
-<p><img alt="eval_benchmark.png" src="../_images/eval_benchmark.png" /></p>
+<p><img alt="eval_benchmark.png" src="../images/eval_benchmark.png" /></p>
 <p>TorchSparse significantly outperforms existing point cloud inference engines in both 3D object detection and LiDAR segmentation benchmarks across three generations of GPU architecture (Pascal, Turing and Ampere)  and all precisions (FP16, TF32, FP32). It is up to <strong>1.7x</strong> faster than state-of-the-art SpConv 2.3.5 and is up to <strong>2.2x</strong> faster than<br />
 TorchSparse-MLsys on cloud GPUs. It also improves the latency of SpConv 2.3.5 by <strong>1.25×</strong> on Orin.</p>
 </section>
 <section id="training-benchmarks">
 <h3>Training benchmarks<a class="headerlink" href="#training-benchmarks" title="Permalink to this heading">#</a></h3>
-<p><img alt="train_benchmark.png" src="../_images/train_benchmark.png" /></p>
+<p><img alt="train_benchmark.png" src="../images/train_benchmark.png" /></p>
 <p>TorchSparse achieves superior mixed-precision training speed compared with MinkowskiEngine, TorchSparse-MLSys and SpConv 2.3.5. Specifically, it is <strong>1.16x</strong> faster on Tesla A100, <strong>1.27x</strong> faster on RTX 2080 Ti than state-of-the-art SpConv 2.3.5. It also significantly outperforms MinkowskiEngine by <strong>4.6-4.8x</strong>* across seven benchmarks on A100 and 2080 Ti. Measured with batch size = 2.</p>
 </section>
 </section>
