@@ -3,4 +3,4 @@ furo
 myst-parser
 sphinx-markdown-tables
 torch
-docutils=0.20.1
+docutils==0.20.1
