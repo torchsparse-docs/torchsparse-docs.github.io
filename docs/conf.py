@@ -14,10 +14,7 @@ sys.path.insert(0, os.path.abspath('../'))
 project = 'TorchSparse'
 copyright = f'{datetime.datetime.now().year}, MIT HAN Lab.\nDocument author: Xiuyu Li. Modified by: Haotian Tang and Shang Yang.'
 author = 'Haotian Tang, Shang Yang, Zhijian Liu, Xiuyu Li, Ke Hong, Zhongming Yu, Yujun Lin, Guohao Dai, Yu Wang, Song Han'
-version_file = '../torchsparse/version.py'
-with open(version_file) as f:
-    exec(compile(f.read(), version_file, 'exec'))
-__version__ = locals()['__version__']
+__version__ = '2.1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

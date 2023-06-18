@@ -1,3 +1,4 @@
+pip==23.1.2
 backports.cached_property
 furo
 myst-parser
